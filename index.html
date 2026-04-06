@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sistem e-PAJSK</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- AutoTable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox">
+  <h2>Login Guru</h2>
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- MAIN APP -->
+<div id="mainApp" style="display:none;">
+
+  <button onclick="logout()" class="logout">Logout</button>
+
+  <!-- HEADER -->
+  <div class="header">
+    <img src="logo.png" class="logo">
+    <h1>Sistem e-PAJSK</h1>
+  </div>
+
+  <!-- FORM -->
+  <div class="form">
+    <input id="name" placeholder="Nama Murid">
+    <input id="class" placeholder="Kelas">
+    <input id="program" placeholder="Program">
+    <button onclick="hantar()">Submit</button>
+  </div>
+
+  <h2>Senarai Rekod</h2>
+
+  <!-- SEARCH -->
+  <input 
+    id="search" 
+    placeholder="Cari nama murid..." 
+    onkeyup="loadData()" 
+    class="search"
+  >
+
+  <!-- EXPORT -->
+  <div class="btn-group">
+    <button onclick="exportData()">Export Excel</button>
+    <button onclick="exportPDF()">Export PDF</button>
+  </div>
+
+  <!-- TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Kelas</th>
+        <th>Program</th>
+        <th>Tindakan</th>
+      </tr>
+    </thead>
+    <tbody id="senarai"></tbody>
+  </table>
+
+</div>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
